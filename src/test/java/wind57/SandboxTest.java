@@ -1,6 +1,5 @@
 package wind57;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -14,7 +13,12 @@ public class SandboxTest {
 
     @Test
     public void go() {
-        Assertions.assertFalse(underTest.go());
+        //Assertions.assertFalse(underTest.go());
+        try {
+            Class.forName(Sandbox.class.getName(), true, Sandbox.class.getClassLoader());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 }
